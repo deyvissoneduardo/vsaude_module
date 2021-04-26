@@ -2,43 +2,29 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
 import 'package:vsaude_app/models/login_model/login_model.dart';
+import 'package:vsaude_app/page/login/login_bloc.dart';
 import 'package:vsaude_app/page/login/login_model_page.dart';
 import 'package:vsaude_app/page/login/repository/login_reposotory.dart';
 import 'package:vsaude_app/page/login/services/api/login_result.dart';
-import 'package:vsaude_app/page/login/widgets/exports_widgets_login.dart';
 import 'package:vsaude_app/shared/constates.dart';
-import 'package:vsaude_app/shared/valid_form/valid_form.dart';
 
 class LoginContoller {
   LoginRepository repository = LoginRepository(Dio());
   Dio dio;
-  FormController formController;
-  FormLogin formLogin;
+  LoginBloc bloc;
   LoginModelPage modelPage;
-
   LoginContoller({
     this.dio,
     this.repository,
-    this.formController,
   });
 
-  getAll() {
-    return modelPage.copyWith(
-        email: formLogin.email,
-        password: formLogin.password,
-        mobileProjectId: projecId);
-  }
-
-  Future<void> loggerUser(LoginModel model, BuildContext context) async {
-    // print(modelPage.email.toString());
-    // print(modelPage.password.toString());
-    // print(modelPage.mobileProjectId.toString());
+  Future<void> loggerUserBloc(LoginModel model, BuildContext context) async {
     try {
-      await repository.logerUser(LoginModel(
-        mobileProjectId: modelPage.mobileProjectId,
-        password: modelPage.password,
-        userNameOrEmailAddress: modelPage.email,
-      ));
+      await bloc.singIn(
+        modelPage.email,
+        modelPage.password,
+        modelPage.mobileProjectId,
+      );
       print('usuario logado');
       return _interctor();
     } catch (err) {

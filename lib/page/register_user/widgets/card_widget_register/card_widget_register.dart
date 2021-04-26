@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vsaude_app/page/register_user/widgets/botton_widget_register/botton_widget_register.dart';
 import 'package:vsaude_app/page/register_user/widgets/form_register_widget/form_register_widget.dart';
 
 class CardWidgetResgister extends StatelessWidget {
@@ -23,7 +22,6 @@ class CardWidgetResgister extends StatelessWidget {
               ),
             ),
           ),
-          BottonRegisterWidget(onPressed: () {})
         ],
       );
     });

@@ -4,11 +4,9 @@ import 'package:vsaude_app/page/register_user/repository/register_user_repositor
 
 class RegisterUserBloc {
   final RegisterUserRepository repository;
-  final RegisterUserModel registerUserModel;
 
   RegisterUserBloc(
     this.repository,
-    this.registerUserModel,
   ) {
     statusOut = _status.stream;
     _statusIn = _status.sink;

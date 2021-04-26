@@ -70,7 +70,7 @@ class _FormLoginState extends State<FormLogin> {
   _validFormLogin() async {
     try {
       if (_formController.valid()) {
-        await loginContoller.loggerUser(
+        await loginContoller.loggerUserBloc(
             LoginModel(
                 userNameOrEmailAddress: modelPage.email,
                 password: modelPage.password,
