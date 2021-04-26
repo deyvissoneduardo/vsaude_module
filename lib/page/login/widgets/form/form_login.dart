@@ -1,59 +1,55 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:validadores/Validador.dart';
+
 import 'package:vsaude_app/core/exports_app_core.dart';
 import 'package:vsaude_app/models/login_model/login_model.dart';
-import 'package:vsaude_app/page/home/home_page.dart';
+import 'package:vsaude_app/page/login/controller/login_controller.dart';
 import 'package:vsaude_app/page/login/login_model_page.dart';
 import 'package:vsaude_app/page/login/reposotory/login_reposotory.dart';
-import 'package:vsaude_app/routes/routes.dart';
 import 'package:vsaude_app/shared/constates.dart';
 import 'package:vsaude_app/shared/valid_form/valid_form.dart';
 
 import '../exports_widgets_login.dart';
 
 class FormLogin extends StatefulWidget {
-  FormLogin({
-    Key key,
-  }) : super(key: key);
+  String email;
+  String password;
+  FormLogin({Key key, this.email, this.password}) : super(key: key);
 
   @override
   _FormLoginState createState() => _FormLoginState();
 }
 
 class _FormLoginState extends State<FormLogin> {
+  String email;
+  String password;
   // controladores
   final FormController _formController = FormController();
-  TextEditingController _controllerEmail =
-      TextEditingController(text: 'lbadias@gmail.com');
-  TextEditingController _controllerPassword =
-      TextEditingController(text: '123qwe');
-
-  LoginModelPage modelPage = LoginModelPage();
+  TextEditingController _controllerEmail = TextEditingController();
+  TextEditingController _controllerPassword = TextEditingController();
 
   //instancias
-  LoginRepository repository = LoginRepository(Dio());
+  final LoginRepository repository = LoginRepository(Dio());
+  final LoginModelPage modelPage = LoginModelPage();
+  final LoginContoller loginContoller = LoginContoller();
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
       return Container(
         alignment: Alignment.center,
-        //height: MediaQuery.of(context).size.height / 2,
         child: Form(
           key: _formController.key,
           child: ListView(
             children: [
               // campo email
               _fieldEmail(),
-              const SizedBox(
-                height: 8,
-              ),
+              const SizedBox(height: 8),
               // campo senha
               _fieldPassword(),
-              const SizedBox(
-                height: 8,
-              ),
+              const SizedBox(height: 8),
               // btn logar
               BottonLoginView(
                 onPressed: () {
@@ -73,29 +69,39 @@ class _FormLoginState extends State<FormLogin> {
   }
 
   _validFormLogin() async {
-    if (_formController.valid()) {
-      return await _saveUser();
+    try {
+      if (_formController.valid()) {
+        await loginContoller.loggerUser(
+            LoginModel(
+                userNameOrEmailAddress: modelPage.email,
+                password: modelPage.password,
+                mobileProjectId: modelPage.mobileProjectId),
+            context);
+      }
+      print(modelPage.toString());
+    } catch (err) {
+      print('erro login $err');
+      return err;
     }
-    return await _errUser(DioError());
   }
 
-  _saveUser() async {
-    await repository.logerUser(LoginModel(
-        userNameOrEmailAddress: _controllerEmail.text,
-        password: _controllerPassword.text,
-        mobileProjectId: mobileProjectId));
-    print('usuario logado');
-    Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()));
-  }
+  // _saveUser() async {
+  //   await repository.logerUser(LoginModel(
+  //       userNameOrEmailAddress: _controllerEmail.text,
+  //       password: _controllerPassword.text,
+  //       mobileProjectId: mobileProjectId));
+  //   print('usuario logado');
+  //   Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()));
+  // }
 
-  _errUser(DioError err) {
-    final _dioerro = DioError(error: err.response);
-    print('***********************');
-    print(_dioerro);
-    print('Login failed');
-    print('***********************');
-    return null;
-  }
+  // _errUser(DioError err) {
+  //   final _dioerro = DioError(error: err.response);
+  //   print('***********************');
+  //   print(_dioerro);
+  //   print('Login failed');
+  //   print('***********************');
+  //   return null;
+  // }
 
   Widget _fieldEmail() {
     return Container(
