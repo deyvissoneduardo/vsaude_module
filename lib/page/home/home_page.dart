@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:vsaude_app/core/app_colors.dart';
 import 'package:vsaude_app/core/exports_app_core.dart';
+import 'package:vsaude_app/page/init/init_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -33,7 +34,8 @@ class _HomePageState extends State<HomePage> {
             setState(() => _currentIndex = index);
           },
           children: [
-            Container(color: Colors.blueGrey),
+            //RouterOutlet(module: InitPage()),
+            InitPage(),
             Container(color: Colors.red),
             Container(color: Colors.green),
             Container(color: Colors.blue),
