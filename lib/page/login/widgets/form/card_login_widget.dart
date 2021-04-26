@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vsaude_app/page/login/login_model_page.dart';
-import 'package:vsaude_app/page/login/reposotory/login_reposotory.dart';
+import 'package:vsaude_app/page/login/repository/login_reposotory.dart';
 import '../exports_widgets_login.dart';
 
 class CardLoginWidget extends StatefulWidget {

@@ -7,8 +7,7 @@ import 'package:vsaude_app/core/exports_app_core.dart';
 import 'package:vsaude_app/models/login_model/login_model.dart';
 import 'package:vsaude_app/page/login/controller/login_controller.dart';
 import 'package:vsaude_app/page/login/login_model_page.dart';
-import 'package:vsaude_app/page/login/reposotory/login_reposotory.dart';
-import 'package:vsaude_app/shared/constates.dart';
+import 'package:vsaude_app/page/login/repository/login_reposotory.dart';
 import 'package:vsaude_app/shared/valid_form/valid_form.dart';
 
 import '../exports_widgets_login.dart';

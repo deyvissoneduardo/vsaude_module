@@ -1,7 +1,7 @@
 import 'package:rxdart/rxdart.dart';
 import 'package:vsaude_app/models/login_model/login_model.dart';
 import 'package:vsaude_app/page/login/login_model_page.dart';
-import 'package:vsaude_app/page/login/reposotory/login_reposotory.dart';
+import 'package:vsaude_app/page/login/repository/login_reposotory.dart';
 
 class LoginBloc {
   final LoginRepository repository;

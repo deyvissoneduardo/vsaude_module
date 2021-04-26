@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:vsaude_app/models/login_model/login_model.dart';
 import 'package:vsaude_app/page/login/login_model_page.dart';
-import 'package:vsaude_app/page/login/reposotory/login_reposotory.dart';
+import 'package:vsaude_app/page/login/repository/login_reposotory.dart';
 import 'package:vsaude_app/page/login/services/api/login_result.dart';
 import 'package:vsaude_app/page/login/widgets/exports_widgets_login.dart';
 import 'package:vsaude_app/shared/constates.dart';
