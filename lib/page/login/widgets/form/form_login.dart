@@ -4,10 +4,10 @@ import 'package:flutter/services.dart';
 import 'package:validadores/Validador.dart';
 
 import 'package:vsaude_app/core/exports_app_core.dart';
-import 'package:vsaude_app/models/login_model/login_model.dart';
-import 'package:vsaude_app/page/login/controller/login_controller.dart';
+import 'package:vsaude_app/page/login/login_bloc.dart';
 import 'package:vsaude_app/page/login/login_model_page.dart';
 import 'package:vsaude_app/page/login/repository/login_reposotory.dart';
+import 'package:vsaude_app/shared/constates.dart';
 import 'package:vsaude_app/shared/valid_form/valid_form.dart';
 
 import '../exports_widgets_login.dart';
@@ -30,9 +30,8 @@ class _FormLoginState extends State<FormLogin> {
   TextEditingController _controllerPassword = TextEditingController();
 
   //instancias
-  final LoginRepository repository = LoginRepository(Dio());
   final LoginModelPage modelPage = LoginModelPage();
-  final LoginContoller loginContoller = LoginContoller();
+  final bloc = LoginBloc(LoginRepository(Dio()));
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +51,17 @@ class _FormLoginState extends State<FormLogin> {
               // btn logar
               BottonLoginView(
                 onPressed: () {
-                  _validFormLogin();
+                  if (_formController.valid()) {
+                    try {
+                      bloc.singIn(
+                        projecId,
+                        _controllerEmail.text,
+                        _controllerPassword.text,
+                      );
+                    } catch (err) {
+                      return err;
+                    }
+                  }
                 },
               ),
               // btn reset
@@ -66,41 +75,6 @@ class _FormLoginState extends State<FormLogin> {
       );
     });
   }
-
-  _validFormLogin() async {
-    try {
-      if (_formController.valid()) {
-        await loginContoller.loggerUserBloc(
-            LoginModel(
-                userNameOrEmailAddress: modelPage.email,
-                password: modelPage.password,
-                mobileProjectId: modelPage.mobileProjectId),
-            context);
-      }
-      print(modelPage.toString());
-    } catch (err) {
-      print('erro login $err');
-      return err;
-    }
-  }
-
-  // _saveUser() async {
-  //   await repository.logerUser(LoginModel(
-  //       userNameOrEmailAddress: _controllerEmail.text,
-  //       password: _controllerPassword.text,
-  //       mobileProjectId: mobileProjectId));
-  //   print('usuario logado');
-  //   Navigator.push(context, MaterialPageRoute(builder: (_) => HomePage()));
-  // }
-
-  // _errUser(DioError err) {
-  //   final _dioerro = DioError(error: err.response);
-  //   print('***********************');
-  //   print(_dioerro);
-  //   print('Login failed');
-  //   print('***********************');
-  //   return null;
-  // }
 
   Widget _fieldEmail() {
     return Container(

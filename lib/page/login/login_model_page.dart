@@ -1,11 +1,9 @@
 import 'dart:convert';
 
-import 'package:vsaude_app/shared/constates.dart';
-
 class LoginModelPage {
   String email;
   String password;
-  String mobileProjectId = projecId;
+  String mobileProjectId;
 
   LoginModelPage({
     this.email,

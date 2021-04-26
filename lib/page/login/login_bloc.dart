@@ -1,13 +1,11 @@
 import 'package:rxdart/rxdart.dart';
 import 'package:vsaude_app/models/login_model/login_model.dart';
-import 'package:vsaude_app/page/login/login_model_page.dart';
 import 'package:vsaude_app/page/login/repository/login_reposotory.dart';
 
 class LoginBloc {
   final LoginRepository repository;
-  final LoginModelPage loginModelPage;
 
-  LoginBloc(this.repository, this.loginModelPage) {
+  LoginBloc(this.repository) {
     statusOut = _status.stream;
     _statusIn = _status.sink;
   }
@@ -17,17 +15,19 @@ class LoginBloc {
   Observable<bool> statusOut;
   Sink<bool> _statusIn;
 
-  Future<void> singIn(
-      String email, String password, String mobileProjectId) async {
+  Future<void> singIn(String mobileProjectId, String userNameOrEmailAddress,
+      String password) async {
     try {
       var response = await repository.logerUser(LoginModel(
-          userNameOrEmailAddress: email,
-          password: password,
-          mobileProjectId: mobileProjectId));
-      //_statusIn.add(response);
+        userNameOrEmailAddress,
+        password,
+        mobileProjectId,
+      ));
+      print('*************logado com sucesso *************');
       return response;
     } catch (err) {
       _status.addError(err);
+      return err;
     }
   }
 

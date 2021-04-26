@@ -8,11 +8,11 @@ class LoginModel {
   String password;
   String mobileProjectId;
 
-  LoginModel({
+  LoginModel(
     this.userNameOrEmailAddress,
     this.password,
     this.mobileProjectId,
-  });
+  );
 
   factory LoginModel.fromJson(Map<String, dynamic> json) =>
       _$LoginModelFromJson(json);

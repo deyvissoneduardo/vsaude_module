@@ -8,9 +8,9 @@ part of 'login_model.dart';
 
 LoginModel _$LoginModelFromJson(Map<String, dynamic> json) {
   return LoginModel(
-    userNameOrEmailAddress: json['userNameOrEmailAddress'] as String,
-    password: json['password'] as String,
-    mobileProjectId: json['mobileProjectId'] as String,
+    json['userNameOrEmailAddress'] as String,
+    json['password'] as String,
+    json['mobileProjectId'] as String,
   );
 }
 
