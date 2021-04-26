@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vsaude_app/page/login/login_page.dart';
+import 'package:vsaude_app/page/home/home_page.dart';
 import 'package:vsaude_app/routes/routes.dart';
 
 class AppModule extends StatelessWidget {
@@ -9,7 +9,7 @@ class AppModule extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: HomePage(),
       initialRoute: Routes.PAGE_HOME,
       onGenerateRoute: Routes.genareteRouter,
     );
