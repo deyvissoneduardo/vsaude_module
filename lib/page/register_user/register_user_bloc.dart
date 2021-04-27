@@ -37,7 +37,6 @@ class RegisterUserBloc {
       return response;
     } catch (err) {
       _status.addError(err);
-      return err;
     }
   }
 
