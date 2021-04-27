@@ -19,6 +19,9 @@ class AppTextStyle {
   static final TextStyle textBlue15 = TextStyle(
       color: AppColors.corTextBLue, fontSize: 15, fontWeight: FontWeight.w400);
 
+  static final TextStyle textGrey15 = TextStyle(
+      color: AppColors.corTextGrey, fontSize: 15, fontWeight: FontWeight.w400);
+
   static final TextStyle textBlue20 = TextStyle(
       color: AppColors.corTextBLue, fontSize: 20, fontWeight: FontWeight.w400);
 

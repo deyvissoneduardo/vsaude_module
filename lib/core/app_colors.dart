@@ -5,6 +5,7 @@ class AppColors {
   static final Color corTextWrite = Colors.white;
   static final Color corTextBlack = Colors.black;
   static final Color corTextBLue = Colors.blueAccent;
+  static final Color corTextGrey = Colors.grey;
 
   // button
   static final Color corBottonBlue = Colors.blueAccent;
