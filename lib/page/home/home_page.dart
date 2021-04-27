@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:vsaude_app/core/app_colors.dart';
 import 'package:vsaude_app/core/exports_app_core.dart';
-import 'package:vsaude_app/page/init/init_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -34,8 +33,7 @@ class _HomePageState extends State<HomePage> {
             setState(() => _currentIndex = index);
           },
           children: [
-            //RouterOutlet(module: InitPage()),
-            InitPage(),
+            Container(color: Colors.blueGrey),
             Container(color: Colors.red),
             Container(color: Colors.green),
             Container(color: Colors.blue),
@@ -54,31 +52,31 @@ class _HomePageState extends State<HomePage> {
           items: <BottomNavyBarItem>[
             BottomNavyBarItem(
               icon: Icon(Icons.home_outlined),
-              title: Text('Home', style: AppTextStyle.textBoldBlue15),
+              title: Text('Home', style: AppTextStyle.textBlue15),
               activeColor: AppColors.corIconBlue,
               textAlign: TextAlign.center,
             ),
             BottomNavyBarItem(
               icon: Icon(Icons.watch_outlined),
-              title: Text('Saúde', style: AppTextStyle.textBoldBlue15),
+              title: Text('Saúde', style: AppTextStyle.textBlue15),
               activeColor: AppColors.corIconBlue,
               textAlign: TextAlign.center,
             ),
             BottomNavyBarItem(
               icon: Icon(Icons.archive_outlined),
-              title: Text('Arquivos', style: AppTextStyle.textBoldBlue15),
+              title: Text('Arquivos', style: AppTextStyle.textBlue15),
               activeColor: AppColors.corIconBlue,
               textAlign: TextAlign.center,
             ),
             BottomNavyBarItem(
               icon: Icon(Icons.contacts_outlined),
-              title: Text('Contatos', style: AppTextStyle.textBoldBlue15),
+              title: Text('Contatos', style: AppTextStyle.textBlue15),
               activeColor: AppColors.corIconBlue,
               textAlign: TextAlign.center,
             ),
             BottomNavyBarItem(
               icon: Icon(Icons.person_rounded),
-              title: Text('Mais', style: AppTextStyle.textBoldBlue15),
+              title: Text('Mais', style: AppTextStyle.textBlue15),
               activeColor: AppColors.corIconBlue,
               textAlign: TextAlign.center,
             ),

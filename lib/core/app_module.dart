@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vsaude_app/page/home/home_page.dart';
+import 'package:vsaude_app/page/init/init_page.dart';
 import 'package:vsaude_app/routes/routes.dart';
 
 class AppModule extends StatelessWidget {
