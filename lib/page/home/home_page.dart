@@ -5,21 +5,15 @@ import 'package:vsaude_app/core/app_colors.dart';
 import 'package:vsaude_app/core/exports_app_core.dart';
 import 'package:vsaude_app/page/init/init_page.dart';
 
-import 'home_store.dart';
+import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends ModularState<HomePage, HomeStore> {
+class _HomePageState extends ModularState<HomePage, HomeController> {
   int _currentIndex = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    controller.pageController;
-  }
 
   @override
   Widget build(BuildContext context) {
