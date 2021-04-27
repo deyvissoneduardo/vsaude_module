@@ -1,35 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:vsaude_app/core/app_colors.dart';
 import 'package:vsaude_app/core/exports_app_core.dart';
 import 'package:vsaude_app/page/init/init_page.dart';
+
+import 'home_store.dart';
 
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends ModularState<HomePage, HomeStore> {
   int _currentIndex = 0;
-  PageController _pageController;
 
   @override
   void initState() {
     super.initState();
-    _pageController = PageController();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    _pageController.dispose();
+    controller.pageController;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: PageView(
-          controller: _pageController,
+          controller: controller.pageController,
           onPageChanged: (index) {
             setState(() => _currentIndex = index);
           },
@@ -48,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           curve: Curves.easeInExpo,
           onItemSelected: (index) {
             setState(() => _currentIndex = index);
-            _pageController.jumpToPage(index);
+            controller.pageController.jumpToPage(index);
           },
           items: <BottomNavyBarItem>[
             BottomNavyBarItem(

@@ -1,17 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:vsaude_app/page/login/login_page.dart';
-import 'package:vsaude_app/routes/routes.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:vsaude_app/page/home/home_module.dart';
 
-class AppModule extends StatelessWidget {
-  const AppModule({Key key}) : super(key: key);
+class AppModule extends Module {
+  @override
+  final List<Bind> binds = [];
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginPage(),
-      initialRoute: Routes.PAGE_HOME,
-      onGenerateRoute: Routes.genareteRouter,
-    );
-  }
+  final List<ModularRoute> routes = [
+    ModuleRoute(Modular.initialRoute, module: HomeModule()),
+  ];
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vsaude_app/core/exports_app_core.dart';
 import 'package:vsaude_app/page/init/widgets/icon_card_init_widget/icon_card_init_widget.dart';
 import 'package:vsaude_app/page/init/widgets/subtitle_card_init_widget/subtitle_card_init_widget.dart';
 import 'package:vsaude_app/page/init/widgets/title_card_init_widget/title_card_init_widget.dart';
