@@ -79,3 +79,16 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  #**** scripts de inicialização do app *********#
+  #********** exucute os com o slidy ************#
+  #********** slidy run dev *********************#
+  #********** slidy run build *******************#
+  #**********************************************#
+vars:
+  clean: flutter clean
+  get: flutter pub get
+  runner: flutter pub run build_runner
+scripts:
+  build: $clean & $get & $runner build --delete-conflicting-outputs
+  dev: $clean & $get & $runner watch --delete-conflicting-outputs
