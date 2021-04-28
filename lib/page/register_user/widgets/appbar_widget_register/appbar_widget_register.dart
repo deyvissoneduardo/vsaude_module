@@ -13,7 +13,7 @@ class AppBarWidgetRegister extends PreferredSize {
                 alignment: Alignment.center,
                 child: Text(
                   'Informe seus dados',
-                  style: AppTextStyle.textBoldBlue15,
+                  style: AppTextStyle.textBoldBlue20,
                 ),
               ),
             ));
