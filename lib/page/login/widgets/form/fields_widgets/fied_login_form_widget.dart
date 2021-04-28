@@ -11,6 +11,7 @@ class FieldLoginFormWidget extends StatelessWidget {
   final List<TextInputFormatter> inputFormater;
   final Function(String) validator;
   final Function(String) onSaved;
+  final Function(String) onChanged;
 
   FieldLoginFormWidget(
       {Key key,
@@ -21,6 +22,7 @@ class FieldLoginFormWidget extends StatelessWidget {
       this.inputFormater,
       this.textInputType,
       this.controller,
+      this.onChanged,
       @required this.validator,
       @required this.onSaved})
       : super(key: key);
@@ -38,6 +40,7 @@ class FieldLoginFormWidget extends StatelessWidget {
               child: TextFormField(
             controller: this.controller,
             autofocus: this.autofocus,
+            onChanged: this.onChanged,
             enableSuggestions: true,
             obscureText: this.obscure,
             keyboardType: this.textInputType,

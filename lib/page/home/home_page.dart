@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:vsaude_app/core/app_colors.dart';
 import 'package:vsaude_app/core/exports_app_core.dart';
 import 'package:vsaude_app/page/init/init_page.dart';
 
-import 'home_controller.dart';
+import 'controller/home_controller.dart';
 
 class HomePage extends StatefulWidget {
   @override

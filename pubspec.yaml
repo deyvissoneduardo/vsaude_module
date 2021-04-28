@@ -20,6 +20,9 @@ version: 1.0.0+1
 environment:
   sdk: ">=2.5.0 <3.0.0"
 
+scripts:  
+  test: flutter pub get
+
 dependencies:
   flutter:
     sdk: flutter
@@ -81,15 +84,3 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
 
-  #**** scripts de inicialização do app *********#
-  #********** exucute os com o slidy ************#
-  #********** slidy run mobx_build *********************#
-  #********** slidy run mobx_watch *******************#
-  #**********************************************#
-vars:
-  clean: flutter clean
-  get: flutter pub get
-  runner: flutter pub run build_runner
-scripts:
-  mobx_build: $clean & $get & $runner build --delete-conflicting-outputs
-  mobx_watch: $clean & $get & $runner watch --delete-conflicting-outputs

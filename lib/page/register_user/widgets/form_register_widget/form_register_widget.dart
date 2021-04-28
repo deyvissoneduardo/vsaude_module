@@ -53,7 +53,7 @@ class _FormRegisterWidgetState extends State<FormRegisterWidget> {
               ),
             ),
             BottonRegisterWidget(onPressed: () {
-              if (_formController.valid()) {
+              if (_formController.validForm()) {
                 try {
                   bloc.insertUser(
                     projecId,
