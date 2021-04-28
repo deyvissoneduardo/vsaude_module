@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+enum EnumRegisterUser { loanding, sucsess }
+
 class RegisterUserModelPage {
   String name;
   String email;

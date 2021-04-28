@@ -34,6 +34,7 @@ class RegisterUserBloc {
         password,
         phone,
       ));
+      print('********usuario salvo *********');
       return response;
     } catch (err) {
       _status.addError(err);

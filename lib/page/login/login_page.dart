@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:vsaude_app/page/login/controller/login_controller.dart';
 import 'package:vsaude_app/page/login/widgets/exports_widgets_login.dart';
 import 'package:vsaude_app/shared/constates.dart';
+import 'package:vsaude_app/shared/progress_indicator/progress_indicator_widget.dart';
 
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
@@ -47,6 +48,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                           controller.modelPage.email,
                           controller.modelPage.password,
                         );
+                        ProgressIndicatorWidget(msg: 'Carregando...');
                         Navigator.pushReplacementNamed(context, '/home');
                       }
                     },
@@ -61,7 +63,8 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                 // btn register
                 Container(
                     child: BottonRegisterView(
-                  onPressed: () {},
+                  onPressed: () =>
+                      Navigator.pushNamed(context, '/register_user'),
                 )),
               ],
             ),
