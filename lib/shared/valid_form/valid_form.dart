@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class FormController {
   var key = GlobalKey<FormState>();
 
-  bool valid() {
+  bool validForm() {
     var form = key.currentState;
 
     if (form.validate()) {

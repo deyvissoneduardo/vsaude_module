@@ -3,8 +3,7 @@ import 'package:vsaude_app/core/exports_app_core.dart';
 
 class BottonResetPasswordLogin extends StatelessWidget {
   VoidCallback onPressed;
-  BottonResetPasswordLogin({Key key, @required this.onPressed})
-      : super(key: key);
+  BottonResetPasswordLogin({Key key, this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

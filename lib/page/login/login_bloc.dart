@@ -23,7 +23,7 @@ class LoginBloc {
         password,
         mobileProjectId,
       ));
-      print('*************logado com sucesso *************');
+      print('************* logado com sucesso *************');
       return response;
     } catch (err) {
       _status.addError(err);
