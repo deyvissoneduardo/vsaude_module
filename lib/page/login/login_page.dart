@@ -57,7 +57,9 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                 //btn reset
                 Container(
                   child: BottonResetPasswordLogin(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/reset_password');
+                    },
                   ),
                 ),
                 // btn register

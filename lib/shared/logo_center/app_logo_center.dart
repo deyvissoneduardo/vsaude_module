@@ -20,7 +20,7 @@ class _AppLogoCenterState extends State<AppLogoCenter> {
         alignment: Alignment.center,
         child: FlutterLogo(
           duration: Duration(seconds: 3),
-          size: 150,
+          size: 100,
         ));
   }
 }
